@@ -1,0 +1,511 @@
+<!DOCTYPE HTML>
+<!--
+	Typify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Autograder | DEMO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+		<style>
+		.tops {
+   vertical-align: top;
+}
+		</style>
+	</head>
+	<body>
+
+		<!-- Banner -->
+			<section id="banner">
+				<h2>OCR Autograder  <br>handwritten digits </h2>  
+				<!-- <strong>handwritten digits</strong> -->
+				<p>NINA NGUYEN </p>
+				<ul class="actions">
+
+			
+						<li><a href="#motivation" class="button ">Motivation</a></li>
+						<li><a href="#product-design" class="button ">Product Design</a></li>
+
+						<li><a href="#data-sources" class="button ">Data Sources</a></li>
+						<li><a href="#image-preprocessing" class="button ">Image Pre-processing</a></li>
+						<br><br>
+						<li><a href="#modeling" class="button ">Model & Evaluation</a>
+						<li><a href="#model-summary" class="button ">Model Summary</a></li>
+						<li><a href="#future-directions" class="button ">Future Directions</a></li>
+						<br><br><br><br>
+						<li> <a href="#demo" class="button special">DEMO</a></li>
+				</ul>
+			</section>
+
+
+
+
+				<section id="one" class="wrapper special">
+						
+					
+				
+						<div class="inner">
+								<br><br>
+								<a name="motivation"></a>
+				
+								<header class="major">
+									<h2>Motivation</h2>
+								</header>
+								<p>Hand-grading free-response questions is a daunting task for many teachers. Current technology allows for autograding of multiple-choice questions (e.g., Illuminate has built-in scoring and gradebook update capabilities). However, OCR-based handwriting recognition is not yet readily available to the public. This tool aims to alleviate the grading burden.</p>
+								<img src="images/problem.png" width="700" ><br><br>
+								<h3 id="inspiration">Inspiration</h3>
+								<p>Current digit recognition technology is proprietary. <br> I aim to create a light-weight, open-source tool with similar functionality.</p>
+								<table>
+										<thead class= 'odd'>
+										<tr class="header">
+										<th align="left">Illuminate</th>
+										<th align="left">Microsoft Ink</th>
+										</tr>
+										</thead>
+										<tbody>
+								
+								<tr class='even'>
+										<td align="left">Illuminate Education software integrates OCR-based autograding and gradebook updates for multiple choice tests. As a former teacher, this tool was invaluable.</td>
+										<td align="left">Microsoft has powerful on-the-fly penstroke capturing software, Windows Ink, which parses handwritten digits and symbols into mathematical expressions. </td>
+									</tr>
+									<tr class='odd'>
+											<td align="left"><img src="images/Illuminate.png" width="500" title="Illuminate" alt="illuminate" /> </td>
+											<td align="left"> <img src="images/MicrosoftInk.png" width = "500" title="Windows Ink" alt="microsoft" /></td>
+							
+							</tr>	
+							</tbody>
+							</table>
+						
+	<br>	<br>	<br>
+							<a name="product-design"></a>	
+							<header class="major">
+								<h2>Product Design</h2>
+								<p>backend infrastructure for the final product</p>
+							</header>
+
+							
+							<table>
+							<thead>
+							<tr class="header">
+							<th align="left">General</th>
+							<th align="left">Detailed</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr class="odd">
+							<td align="left"><img src="images/Nina_AutoGrader-1.png" width="500" title="general design" alt="general-design" /></td>
+							<td align="left"><img src="images/Nina_AutoGrader-2.png" width="500" title="detailed design" alt="detailed-design" /></td>
+							</tr>
+							</tbody>
+							</table>		
+
+
+							<br><br>
+							<header class="major">
+									<h2>Working Prototype</h2>
+								</header>
+							<img src="images/app-demo.png" width="1050" >
+							<br><br><br><br>
+							<a name="data-sources"></a>	
+							<header class="major">
+								<h2>Data Sources</h2>
+							</header>	
+							<p>Detailed instructions for obtaining data is <a href="#obtaining-data">provided here</a>.<br></p>
+							<table>
+							<thead>
+							<tr class="header">
+							<th align="left">Name</th>
+							<th align="left">Description</th>
+							<th align="left">Usage</th>
+							<th align="left">Resource</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr class="odd">
+							<td align="left"><a href="#MNIST">MNIST</a></td>
+							<td align="left">Well-known repository for handwritten digits</td>
+							<td align="left">Training</td>
+							<td align="left">http://yann.lecun.com/exdb/mnist/</td>
+							</tr>
+							<tr class="even">
+							<td align="left"><a href="#HASYv2">HASYv2</a></td>
+							<td align="left">Over 150,000 handwritten characters (including LaTeX mathematical symbols)</td>
+							<td align="left">Training</td>
+							<td align="left">https://zenodo.org/record/259444</td>
+							</tr>
+							<tr class="odd">
+							<td align="left"><a href="#Kensanata">Kensanata</a></td>
+							<td align="left">Over 16,000 labeled handwritten digits (includes gender, country, age)</td>
+							<td align="left">Testing</td>
+							<td align="left">https://github.com/kensanata/numbers</td>
+							</tr>
+							<tr class="even">
+							<td align="left">CROHME</td>
+							<td align="left">Competition on Recognition of Online Handwritten Mathematical Expressions (InkML format)</td>
+							<td align="left">Future Directions</td>
+							<td align="left">https://www.isical.ac.in/~crohme/CROHME_data.html</td>
+							</tr>
+							</tbody>
+							</table>	
+
+
+							<br><br><br>	
+							<a name="image-preprocessing"></a>	
+							<header class="major">
+								<h2>Image Pre-processing</h2>
+								<p>Significant pre-processing of raw images is required.</p>
+							</header>		
+		
+							<table>
+									<thead>
+									<tr class="header">
+									<th align="left">Stage</th>
+									<th align="left">Image</th>
+									<th align="left">Issues</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr class="even">
+									<td align="left">Raw Image</td>
+									<td align="left"><img src="images/0734.jpg" class="tops" width="500" title="Raw Image" alt="raw-image" /></td>
+									<td align="left">From the human eye, 4 distinct segments are readily apparent. However, shadows and other subtle artifacts are detected by the computer as objects.</td>
+									</tr>
+									<tr class="even">
+									<td align="left">Preprocessed Binary</td>
+									<td align="left"><img src="images/0734_original.jpg"  class="tops" width="500" title="Binary Image" alt="binary-image" /></td>
+									<td align="left">Results in 4000+ segments (expected 4) due to noisy, non-white background. Dots are each considered separate segments. Requires processing.</td>
+									</tr>
+									<tr class="even">
+									<td align="left">Postprocessed Binary</td>
+									<td align="left"><img src="images/postprocessed_binary.jpg" class="tops"  width="500" title="Processed Image" alt="processed-image" /></td>
+									<td align="left">Adjusting alpha levels and gaussian blurring reduces noise from raw image. Segmentation ready.</td>
+									</tr>
+									<tr class="even">
+									<td align="left">Segmented Image</td>
+									<td align="left"><img src="images/0734_segmented.png"  class="tops" width="500" title="Segmented Image" alt="segmented-image" /></td>
+									<td align="left">Proper segmentation detects 4 objects.</td>
+									</tr>
+									</tbody>
+									</table>
+									<br><br><br>
+									<h2>Example Run on the Web App</h2>
+									<table>		
+											
+											<tr class="header">
+												<thead>
+												<th align="left">Training vs. Actual Images</th>
+												<th align="left">Backend Preprocessing & Segmentation </th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr class="even">
+												<td align="left"><img src="images/comparison.png" width="550" title="webcam example" alt="webcam-example" /></td>
+												<td align="left"><img src="images/segmenting.png"  width="550" title="upload example" alt="upload-example" /></td>
+												</tr>
+												</tbody>
+												</table>
+												<h2>SAMPLE OUTPUT</h2>
+												<p>User takes (or uploads) photo and enters answer.<br>The student's result is returned.</p>
+												<div class="figure">
+														<img src="images/prediction.png" title="Model Improvement" alt="Model Improved" />
+														<br><br>
+												</div>
+												
+							
+					</div>
+				</section>
+
+				<section id="two" class="wrapper style2 special">
+
+						
+					<div class="inner narrow">
+							<a name="demo"></a>
+							<header class="major">
+									<h2>Demo</h2>
+								</header>
+							<p>App supports both desktop and mobile platforms.</p>
+							<table>
+								<thead>
+									<tr class="header">
+<<<<<<< HEAD
+											<th align="center">DESKTOP</th>
+											<th align="center">MOBILE</th>
+=======
+											<th align="center"></th>
+											<th align="center">live ec2</th>
+<!-- 											<th align="center">localhost</th> -->
+>>>>>>> 69e5165edca52757a8e01e8f29f641c261b8f11f
+											</tr>
+										</thead>
+										<tbody>
+							<tr class="even">
+									<td align="left">	
+										<a href="https://ec2-3-87-21-115.compute-1.amazonaws.com:5000/" class="button special">Webcam</a>
+									</td>	
+							<td align="left">		
+		
+								<a href="https://ec2-3-87-21-115.compute-1.amazonaws.com:5000/mobile" class="button special">Upload</a>
+		
+							</td>
+<<<<<<< HEAD
+
+=======
+<!-- 							<td align="center">	
+				
+								 <a href="https://0.0.0.0:5000/" class="button special">Webcam</a>   <br><br>
+								 <a href="https://0.0.0.0:5000/mobile" class="button special">Upload</a>
+							</td> -->
+>>>>>>> 69e5165edca52757a8e01e8f29f641c261b8f11f
+							</tbody>
+						</table>
+							<br><br>
+							
+	
+					</div>
+					<div class="inner">
+					<h1 id="app-prototype">App Prototype</h1>
+					<p>This is a very preliminary web app to work out backend functionality. <br>The actual app design will only require users to designate crop areas and enter answer keys once. <br>From there, any number of exams can be auto-graded by simply scanning the page. </p>
+					<table>
+					<thead>
+					<tr class="header">
+					<th align="center">DESKTOP</th>
+					<th align="center">MOBILE</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr class="odd">
+					<td align="center"><img src="images/app_webcam_example.png" width="500" title="webcam example" alt="webcam-example" /></td>
+					<td align="center"><img src="images/app_upload_example.png"  width="500" title="upload example" alt="upload-example" /></td>
+					</tr>
+					</tbody>
+					</table>
+				</div>
+				</section>
+
+				<section id="three" class="wrapper">
+						<div class="inner">
+								<a name="modeling"></a>	
+								<header class="major">
+									<h2>Modeling & Evaluation</h2>
+									<p>Final Model: CNN</p>
+									
+									<img src="images/CNN.png" width="1100">
+									<p><a href="#model-summary">Click here to jump to Model Summary</a> </p>
+								</header>					
+	
+							<p>Decision Tree and SVM Classifiers were used as baseline models.</p>
+							<h3 id="decision-tree-classifier">Decision Tree Classifier</h3>
+							<table>
+									<thead>
+									<tr class="header">
+									<th align="left">MNIST Test Set</th>
+									<th align="left">Kensanata Test Set</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr class="odd">
+									<td align="left"><img src="images/BarGraph_DecisionTreeClassifier(MNISTTestSet).png" width="480"  title="Decision Tree Classifier - MNIST" alt="Decision Tree" /></td>
+									<td align="left"><img src="images/BarGraph_DecisionTreeClassifier(Kensanata).png"  width="480"   title="Decision Tree Classifier - Kensanata" alt="Decision Tree" /></td>
+									</tr>
+									<tr class="even">
+									<td align="left"><img src="images/ConfusionMatrix_DecisionTree(MNISTTestSet).png"  width="500" title="Decision Tree Classifier - MNIST" alt="Decision Tree" /></td>
+									<td align="left"><img src="images/ConfusionMatrix_DecisionTreeClassifier(Kensanata).png" width="500"  title="Decision Tree Classifier - Kensanata" alt="Decision Tree" /></td>
+									</tr>
+									</tbody>
+									</table>
+									<h3 id="svm-classifier">SVM Classifier</h3>
+									<p>Standard Scaler is used for SVM classsification. <br>Although SVM works well with MNIST data, it does not perform well with Kenasata.</p>
+									<table>
+									<thead>
+									<tr class="header">
+									<th align="left">MNIST Test Set</th>
+									<th align="left">Kensanata Test Set</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr class="odd">
+									<td align="left"><img src="images/BarGraph_SVMClassifier(MNISTTestSet).png" width="480"  title="SVM Classifier - MNIST" alt="SVM" /></td>
+									<td align="left"><img src="images/BarGraph_SVMClassifier(Kensanata).png" width="480"   title="SVM Classifier - Kensanata" alt="SVM" /></td>
+									</tr>
+									<tr class="even">
+									<td align="left"><img src="images/ConfusionMatrix_SVMClassifier(MNISTTestSet).png" width="500"   title="SVM Classifier - MNIST" alt="SVM" /></td>
+									<td align="left"><img src="images/ConfusionMatrix_SVMClassifier(Kensanata).png" width="500"  title="SVM Classifier - Kensanata" alt="SVM" /></td>
+									</tr>
+									</tbody>
+									</table>
+
+									<h2 id="content">Model Improvement</h2>
+									<h3 id="cnn-classifier">CNN Classifier</h3>
+									<p>Improved on Kenasata dataset. Note: These images are processed raw, so that comparisons with MNIST is fair. This same model is used in the app, however after preprocessing of images. This results in even higher performance.</p>
+									<table>
+									<thead>
+									<tr class="header">
+									<th align="left">MNIST Test Set</th>
+									<th align="left">Kensanata Test Set</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr class="odd">
+									<td align="left"><img src="images/BarGraph_CNN1Classifier(MNISTTestSet).png"  width="480" title="CNN Classifier 1 - MNIST" alt="CNN" /></td>
+									<td align="left"><img src="images/BarGraph_CNN1Classifier(Kensanata).png"  width="480" title="CNN Classifier 1 - Kensanata" alt="CNN" /></td>
+									</tr>
+									<tr class="even">
+									<td align="left"><img src="images/ConfusionMatrix_CNN1Classifier(MNISTTestSet).png"  width="500"  title="CNN Classifier 1 - MNIST" alt="CNN" /></td>
+									<td align="left"><img src="images/ConfusionMatrix_CNN1Classifier(Kensanata).png" width="500"  title="CNN Classifier 1 - Kensanata" alt="CNN" /></td>
+									</tr>
+									</tbody>
+									</table>	
+									<h4>The following classification reports are based on Kensanata data only.</h4>
+		
+									<div class="figure">
+									<img src="images/model_improvement.png" title="Model Improvement" alt="Model Improved" />
+									<br><br>
+									</div>	
+		
+									<div class="inner">
+											<a name="model-summary"></a>	
+											<header class="major">
+												<h2>Model Summary</h2>
+											</header>			
+										
+									<p>Accuracy is summarized for each of the models. F1 scores is also used for model evaluation, <br>as it combines recall and precision into one performance metric.</p>
+									<br><br>
+									<table>
+									<thead>
+									<tr class="header">
+									<th align="left">Model</th>
+									<th align="left">MNIST Test Set<br>Accuracy</th>
+									<th align="left">Kensanata Test Set<br>Accuracy</th>
+									<th align="left">Kensanata Test Set<br>F1 Score (macro)</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr class="odd">
+									<td align="left">Decision Tree</td>
+									<td align="left">0.88</td>
+									<td align="left">0.36</td>
+									<td align="left">0.33</td>
+									</tr>
+									<tr class="even">
+									<td align="left">SVM</td>
+									<td align="left">0.94</td>
+									<td align="left">0.30</td>
+									<td align="left">0.27</td>
+									</tr>
+									<tr class="odd">
+									<td align="left">CNN #1</td>
+									<td align="left">0.98</td>
+									<td align="left">0.80</td>
+									<td align="left">0.80</td>
+									</tr>
+									</tbody>
+									</table>
+									<br><br>
+									
+									<p>Kensanata was used as the primary model evaluator, as it best mimics data fed into the app (unseen, noisy). Low accuracy for 1s and 9s are observed for CNN, despite such high MNIST test accuracy. This is because the majority of the set comes from Europe, where many countries write 1s and 9s differently from standard US lettering.</p>
+		
+									<img src="images/kensanata-sample.jpg" width="700" title="detailed design" alt="detailed-design" />
+						 <br><br><br><br>
+								
+						</div>
+
+
+
+						<br><br><br>
+						<a name="future-directions"></a>	
+						<header class="major">
+							<h2>Future Directions</h2>
+						</header>
+						<p>Combining HASYv2 data (includes all LaTeX symbols and characters) with CROHME data can extend this project to recognize complex math and physics equations. Pre-processing and segmentation on CROHME is already functional at present. Training of the entire HASYv2 set would allow for more robust functionality.</p>
+						<table>
+						<thead>
+						<tr class="header">
+						<th align="center">HASYv2: LaTeX Symbols<br><img src="images/hasvy2-sample.png" width="400" title="general design" alt="general-design" /></td><th>
+						<th align="center">CROHME: Math Expressions<br><img src="images/CROHNE-sample.jpg" width="500" title="detailed design" alt="detailed-design" /></th>
+						</tr>
+						</thead>
+
+						</table>		
+						
+
+
+						
+			</section>
+
+
+			<section id="three" class="wrapper">
+				
+					<div class="inner">
+							<a name="obtaining-data"></a>	
+							<header class="major " >
+								<h2>Obtaining the Data</h2>
+								</header>
+					<h2 id="mnist">MNIST</h2>
+					<p>Data can be loaded using keras or sklearn.</p>
+					<h4 id="keras-has-the-full-mnist-set">keras has the full MNIST set</h4>
+					<ul>
+					<li>70,000 total images split into train (60K) and test (10K)</li>
+					<li>image size: 28 x 28 pixels</li>
+					</ul>
+					<pre><code>
+					from tensorflow.keras.datasets import mnist
+					(X_train,y_train),(X_test,y_test) = mnist.load_data()</code></pre>
+					<h4 id="sklearn-has-a-small-subset-of-mnist">sklearn has a small subset of MNIST</h4>
+					<ul>
+					<li>1,797 total images</li>
+					<li>image size: 8 x 8 pixels</li>
+					</ul>
+					<pre><code>
+					from sklearn.datasets import load_digits
+					digits = load_digits()
+					X = digits.data
+					y = digits.target</code></pre>
+					<h2 id="hasyv2">HASYv2</h2>
+					<p>HASYv2 is an extensive dataset, primarily consisting of LaTeX images. The following code limits the dataset to digits (line 34).</p>
+					<h4 id="hasyv2-digit-dataset">HASYv2 digit dataset</h4>
+					<ul>
+					<li>1,020 total images</li>
+					<li>image size: 32 x 32 pixels</li>
+					</ul>
+					<p>Running this code will return reshaped 28x28 image arrays</p>
+					<pre><code>
+					from newDatasets import load_HASY
+					X,y = load_HASY() </code></pre>
+					<h2 id="kensanata">Kensanata</h2>
+					<p>Kensanata dataset includes interesting demographic data. There are ~17K digit images in the set. The <a href="https://github.com/kensanata/numbers?files=1">original file structure</a> makes direct processing somewhat cumbersome. I have compiled the images into <a href="https://github.com/aprettyloner/autograder/tree/master/Kensanata">a single directory</a>. </p>
+					<h4 id="kensanata-digit-dataset">Kensanata digit dataset</h4>
+					<ul>
+					<li>16,994 total images</li>
+					<li>image size: varies</li>
+					</ul>
+					<p>Running this code will return reshaped 28x28 image arrays</p>
+					<pre><code>
+					from newDatasets import load_Kensanata
+					X,y = load_Kensanata() </code></pre>
+					<p>Running this code will return a dataframe with all information, including 28x28 image arrays</p>
+					<pre><code>
+					from newDatasets import load_Kensanata
+					df = load_Kensanata(dataframe = True)</code></pre>
+				</div>
+			</section>
+
+
+
+		
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
