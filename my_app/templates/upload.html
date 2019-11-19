@@ -1,0 +1,85 @@
+<!doctype html>
+<title>Python Flask File Upload Example</title>
+<head><link href="../static/css/cropper.css" rel="stylesheet">
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
+    <script type="text/javascript">
+        AWS.config.update({
+            accessKeyId : 'AKIAIOLEJMDEURMH5WEA',
+            secretAccessKey : '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'
+        });
+        AWS.config.region = 'us-east-2';
+    </script>
+</head>
+<!-- <h2>Select a file to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p> -->
+
+<form id="fileUploadForm" method="post"  action="/" enctype="multipart/form-data"></form>
+<!-- <form method="post" action="/" enctype="multipart/form-data"> -->
+    <dl>
+		<p>
+			<input type="file" name="file" autocomplete="off" value="dataFile"  required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" onclick="uploadFile()" value="Submit">
+	</p>
+</form>
+<script>
+function uploadFile() {
+
+var file = document.getElementById('file').files[0];
+var fd = new FormData();
+
+var key = "events/" + (new Date).getTime() + '-' + file.name;
+
+fd.append('key', key);
+fd.append('acl', 'public-read'); 
+fd.append('Content-Type', file.type);      
+fd.append('AWSAccessKeyId', 'YOUR ACCESS KEY');
+fd.append('policy', 'YOUR POLICY')
+fd.append('signature','YOUR SIGNATURE');
+
+fd.append("file",file);
+
+var xhr = getXMLHTTPObject();
+
+xhr.upload.addEventListener("progress", uploadProgress, false);
+xhr.addEventListener("load", uploadComplete, false);
+xhr.addEventListener("error", uploadFailed, false);
+xhr.addEventListener("abort", uploadCanceled, false);
+
+xhr.open('POST', 'https://<yourbucket>.s3.amazonaws.com/', true); //MUST BE LAST LINE BEFORE YOU SEND 
+
+xhr.send(fd);
+}
+
+$("#fileUploadForm").submit(function() {
+    var bucket = new AWS.S3({params: {Bucket: 'autograder-site'}});
+    var fileChooser = document.getElementById('file');
+    var file = fileChooser.files[0];
+    if (file) {
+    var params = {Key: 'FILE_NAME', ContentType: file.type, Body: file};
+    bucket.upload(params).on('httpUploadProgress', function(evt) {
+    console.log("Uploaded :: " + parseInt((evt.loaded * 100) / evt.total)+'%');
+    }).send(function(err, data) {
+    alert("File uploaded successfully.");
+    });
+    }
+    return false;
+    });
+</script>
+
+
+<script src="../static/js/cropper.js"></script>
+<!-- <script src="https://www.powr.io/powr.js?platform=html"></script><div class="powr-photo-editor" id="875d62a1_1573079038"></div> -->
+<!-- <script src="https://www.powr.io/powr.js?platform=html"></script><div class="powr-form-builder" id="7aa5363d_1573081594"></div> -->

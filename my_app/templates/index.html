@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="<meta name="viewport" content="width=device-width">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    <!-- Name of your awesome camera app -->
+    <title>Autograder | WEBCAM</title>    <!-- Link to your main style sheet-->
+    <!-- <link rel="stylesheet" href="./static/css/style.css"> -->
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+  
+<style>
+  .page {
+	margin: 1em auto;
+	flex-wrap: wrap;
+	height: 100%;
+}
+.cropper-container{
+  width: 50%;
+  height: 100%;
+}
+.cool{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.box {
+	padding: 0.5em;
+	width: 100%;
+	margin:0.5em;
+}
+
+.box-2 {
+	padding: 0.5em;
+	width: calc(100%/2 - 1em);
+}
+
+.options label,
+.options input{
+	width:4em;
+	padding:0.5em 1em;
+}
+.btn{
+	background:white;
+	color:black;
+	border:1px solid black;
+	padding: 0.5em 1em;
+	text-decoration:none;
+	margin:0.8em 0.3em;
+	display:inline-block;
+	cursor:pointer;
+}
+
+.hide {
+	display: none;
+}
+
+img {
+	max-width: 100%;
+}
+</style>
+
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+<body>    <!-- Camera -->
+	<div><a href='/mobile'><h4>MOBILE USERS | Use image upload version</h4></a></div>
+	<h2>Capture an image using webcam or document scanner.</h2>
+  <main id="camera">        <!-- Camera sensor -->
+      <canvas id="camera--sensor"></canvas>        <!-- Camera view -->
+      <video id="camera--view" autoplay playsinline></video><br>        <!-- Camera output -->
+        <!-- <img src="//:0" alt="" id="camera--output">     Camera trigger -->
+	  <button id="camera--trigger">Take a picture</button>    </main>    <!-- Reference to your JavaScript file -->
+	  <br>Retake Photo<a href='/'><img src='https://image.flaticon.com/icons/svg/13/13964.svg' alt='Retake Photo' width=30px/></a>
+
+  <main class="page">
+	<h2>Crop your image.</h2>
+      <br>
+	<!-- input file -->
+	<!-- <div class="box">
+		<input type="file" id="file-input">
+	</div> -->
+  <!-- leftbox -->
+  <div class='cool'>
+	<div class="box-2">
+		<div class="result"></div>
+	</div>
+	<!--rightbox-->
+	<div class="box-2 img-result hide">
+		<!-- result of crop -->
+		<img class="cropped" src="" alt="">
+  </div>
+</div>
+	<!-- input file -->
+	<div class="box">
+		<div class="options hide">
+			<label> Width</label>
+			<input type="number" class="img-w" value="1080" min="100" max="1200" />
+		</div>
+		<!-- save btn -->
+		<button class="btn save hide">Crop Image</button>
+		<!-- download btn -->
+		<input type="text" class="answer hide"  onfocus="if(this.value=='Enter Answer')this.value=''" onblur="if(this.value=='')this.value='Enter Answer'" />
+    <a href="" class="btn download hide">PROCESS</a>
+		<!-- process btn -->
+
+    <!-- <a href="" class="btn process hide">PROCESS IMAGE!</a> -->
+  </div>
+  
+  <!-- <iframe src="https://www.powr.io/plugins/photo-editor/view/21880650" style="width:100%;" height="743px" frameborder="0"></iframe> -->
+</main>
+
+
+
+<script src="./static/js/webusb.js"></script>
+
+
+<!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script> -->
+<script src="./static/js/app.js"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+
+
+
+<!-- <script src="https://www.powr.io/powr.js?platform=html"></script><div class="powr-photo-editor" id="875d62a1_1573079038"></div> -->
+</body>
+
+</html>
+ 
