@@ -33,7 +33,7 @@ def count_seg(filename):
 
 
 def label_segments(filename,savename='',photo=False,marker=False):
-    alpha=1.1
+    alpha=.9
     beta=0
     try:
         image = cv2.imread(filename,cv2.IMREAD_GRAYSCALE)

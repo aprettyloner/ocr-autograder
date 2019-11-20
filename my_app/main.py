@@ -9,7 +9,8 @@ from predict import predict_tf
 from predict import *
 #model='static/mnist_hasyv2_master_20epochs_batch64__ALLDATA_201911081573211546.h5'
 #model='static/nosymbols.h5'
-model='static/mnist_hasyv2_master_20epochs_batch64__ALLDATA_201911081573211546.h5'
+#model='static/mnist_hasyv2_master_20epochs_batch64__ALLDATA_201911081573211546.h5'
+model='static/FINAL___tf_model___201911191574216513.h5'
 tf_model = models.load_model(model)
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
