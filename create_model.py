@@ -191,5 +191,16 @@ def create_model(data,train_size=.80,batch_size=32,epochs=20):
 
 
 def from_np_array(array_string):
+    '''
+    Given an array_string (from kensanata function .csv output file), return numpy array.
+    
+    Input:  
+        [array_string]  string representing a list
+
+    Output: 
+        [np array]      numpy array, reshaped to 28x28
+
+    '''    
     array_string = array_string.replace('\n','').replace('   ',',').replace('[  ','[').replace('  ',',').replace(' ',',')
-    return np.array(ast.literal_eval(array_string)).reshape((28,28))
+    np_array = np.array(ast.literal_eval(array_string)).reshape((28,28))
+    return np_array
